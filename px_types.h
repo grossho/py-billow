@@ -6,7 +6,7 @@
 #if !defined(HEADER_PX_TYPES)
 #define HEADER_PX_TYPES
 
-#include <sys/stddef.h>
+#include <sys/types.h>
 
 #if defined(__FreeBSD__)
 #include <sys/limits.h>
