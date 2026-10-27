@@ -1,6 +1,5 @@
 
-PYTHON ?= python3.11
-PYTHON ?= python2.7
+PYTHON ?= python
 
 all:
 	rm -rf build dist

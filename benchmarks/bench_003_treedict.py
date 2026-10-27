@@ -8,13 +8,15 @@ x = [(2061,1), (2034,1), (2091,1), (2088,1), (2005,1), (2008,1), (2096,1), (2000
 
 print("len = ", len(x))
 r = repr(x)
-t1 = timeit.Timer("treedict(x)", "x=%s\nfrom billow import treedict" % (r,)).timeit(number=iters)
+t1_0 = timeit.Timer("treedict(x, algono=0)", "x=%s\nfrom billow import treedict" % (r,)).timeit(number=iters)
+t1_1 = timeit.Timer("treedict(x, algono=1)", "x=%s\nfrom billow import treedict" % (r,)).timeit(number=iters)
 try:
     t2 = timeit.Timer("treedict(x,compare=cmp_long)", "x=%s\nfrom billow import treedict, cmp_long" % (r,)).timeit(number=iters)
 except ImportError:
     t2 = 0.0
 t3 = timeit.Timer("dict(x)", "x=%s\n" % (r,)).timeit(number=iters)
 
-print("billow.treedict time                       %.2f" % (t1,))
+print("billow.treedict(algono=0) time             %.2f" % (t1_0,))
+print("billow.treedict(algono=1) time             %.2f" % (t1_1,))
 print("billow.treedict(compare=cmp_long) time     %.2f" % (t2,))
 print("dict time                                  %.2f" % (t3,))
